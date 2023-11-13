@@ -23,11 +23,16 @@ document.querySelector('#faleComigo').onclick = function() {
     document.querySelector('#faleComigo').classList.add('activated');
 }
 */
-//END navigation bar
-document.querySelector('#inicio').classList.add('activated');
 
 const buttons = document.querySelectorAll('.nav__list__item__button');
+const contentViewList = document.querySelectorAll('.content');
+
+buttons[0].classList.add('activated');
+contentViewList[0].classList.add('show');
+
+
 for(let i = 0; i < buttons.length; i++){
+
     const option = buttons[i];
     
     option.onclick = function () {
@@ -35,9 +40,13 @@ for(let i = 0; i < buttons.length; i++){
         for(let i = 0; i < buttons.length; i++){
             if(buttons[i].getAttribute('id') === option.getAttribute('id')){
                 option.classList.add('activated');
+                contentViewList[i].classList.add('show');
             } else {
                 buttons[i].classList.remove('activated');
+                contentViewList[i].classList.remove('show');
             }
         }
     }
 }
+
+//END navigation bar 
